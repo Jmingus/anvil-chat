@@ -14,6 +14,7 @@ $(document).ready(function () {
           timecreated: moment().format('MMMM Do YYYY, h:mm:ss a')
         } }, function onPostRequestComplete(response) {
         console.log('post', response);
+        playSound();
       }, 'json');
     } else {
       console.log('username or message can\'t be blank');
@@ -47,6 +48,11 @@ $(document).ready(function () {
       $botBox.append('<div>You are so right?</div>');
     }
   };
+
+  function playSound() {
+    var audio = $('audio')[0];
+    audio.play();
+  }
 
   function deleteServer() {
     $.get('http://tiyfe.herokuapp.com/collections/anvil-chat', function (response) {
