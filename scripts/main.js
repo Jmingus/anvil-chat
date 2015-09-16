@@ -7,6 +7,7 @@ $(document).ready(function(){
   $form.submit(function(e){
     e.preventDefault()
     if($('#username').val() !== '' && $('#message').val() !==''){
+      chatBot($('#message').val())
       $.post(
       'http://tiyfe.herokuapp.com/collections/anvil-chat',
       {user: {username: $('#username').val(),
@@ -48,6 +49,14 @@ $(document).ready(function(){
       'json'
       );
     };
+
+  function chatBot(string){
+    $('#bot-box').text('')
+    var $botBox = $('#bot-box')
+    if(string.toLowerCase() === 'amiright'){
+      $botBox.append('<div>You are so right?</div>')
+    }
+  };
 
   function deleteServer(){
     $.get('http://tiyfe.herokuapp.com/collections/anvil-chat',
