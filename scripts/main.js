@@ -34,17 +34,18 @@ $(document).ready(function(){
       $.get(
         'http://tiyfe.herokuapp.com/collections/anvil-chat',
         function(response) {
-          $('#chat-box').text('')
+          $('.row').text('')
           if(response === []){
             console.log('nothing here yet')
           }else{
 
             for(var i = 0; i < response.length; i ++){
-              $('#chat-box').append('<div class="emote">'+response[i]['user[username]'] +' | '
+              $('.row').append('<div class="small-9 columns emote"><p><strong>'+response[i]['user[username]'] +'</strong>:'
                 + response[i]['user[message]'] +'  '
-                +'<sub>'+response[i]['user[timecreated]']+'</sub>'+'</div')
+                +'<sub style="float:right;bottom: -3.25em">'+response[i]['user[timecreated]']+'</sub></p>'+'</div><hr/>')
             }
             $('.emote').emoticonize();
+
           }
       },
       'json'
@@ -72,7 +73,7 @@ $(document).ready(function(){
         }
       )},
       'json');
-    $('#chat-box').text('')
+    $('.row').text('')
   }
 
 

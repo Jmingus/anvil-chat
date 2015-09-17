@@ -1,7 +1,9 @@
-
-#chat-box{
-  height: 10em;
-  width: 10em;
-  color: green;
-  background: black;
+@import 'normalize';
+@import 'foundation.min.scss';
+nav{
+  background: #3A414A;
+  padding-left: 2em;
+  h3{
+  color: #88C470;
+  }
 }
